@@ -13,7 +13,7 @@ export async function fetchSessionizeSpeakers() {
 
 
 
-interface SessionizeSpeakersMain {
+export interface SessionizeSpeakersMain {
   id: string;
   firstName: string;
   lastName: string;

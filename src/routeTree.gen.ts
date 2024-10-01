@@ -13,6 +13,9 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as SpeakersIndexImport } from './routes/speakers/index'
+import { Route as SessionsIndexImport } from './routes/sessions/index'
+import { Route as SpeakersSpeakerImport } from './routes/speakers/$speaker'
+import { Route as SessionsSessionImport } from './routes/sessions/$session'
 
 // Create/Update Routes
 
@@ -26,6 +29,21 @@ const SpeakersIndexRoute = SpeakersIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const SessionsIndexRoute = SessionsIndexImport.update({
+  path: '/sessions/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SpeakersSpeakerRoute = SpeakersSpeakerImport.update({
+  path: '/speakers/$speaker',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SessionsSessionRoute = SessionsSessionImport.update({
+  path: '/sessions/$session',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -35,6 +53,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/sessions/$session': {
+      id: '/sessions/$session'
+      path: '/sessions/$session'
+      fullPath: '/sessions/$session'
+      preLoaderRoute: typeof SessionsSessionImport
+      parentRoute: typeof rootRoute
+    }
+    '/speakers/$speaker': {
+      id: '/speakers/$speaker'
+      path: '/speakers/$speaker'
+      fullPath: '/speakers/$speaker'
+      preLoaderRoute: typeof SpeakersSpeakerImport
+      parentRoute: typeof rootRoute
+    }
+    '/sessions/': {
+      id: '/sessions/'
+      path: '/sessions'
+      fullPath: '/sessions'
+      preLoaderRoute: typeof SessionsIndexImport
       parentRoute: typeof rootRoute
     }
     '/speakers/': {
@@ -51,36 +90,67 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/sessions/$session': typeof SessionsSessionRoute
+  '/speakers/$speaker': typeof SpeakersSpeakerRoute
+  '/sessions': typeof SessionsIndexRoute
   '/speakers': typeof SpeakersIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/sessions/$session': typeof SessionsSessionRoute
+  '/speakers/$speaker': typeof SpeakersSpeakerRoute
+  '/sessions': typeof SessionsIndexRoute
   '/speakers': typeof SpeakersIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/sessions/$session': typeof SessionsSessionRoute
+  '/speakers/$speaker': typeof SpeakersSpeakerRoute
+  '/sessions/': typeof SessionsIndexRoute
   '/speakers/': typeof SpeakersIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/speakers'
+  fullPaths:
+    | '/'
+    | '/sessions/$session'
+    | '/speakers/$speaker'
+    | '/sessions'
+    | '/speakers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/speakers'
-  id: '__root__' | '/' | '/speakers/'
+  to:
+    | '/'
+    | '/sessions/$session'
+    | '/speakers/$speaker'
+    | '/sessions'
+    | '/speakers'
+  id:
+    | '__root__'
+    | '/'
+    | '/sessions/$session'
+    | '/speakers/$speaker'
+    | '/sessions/'
+    | '/speakers/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SessionsSessionRoute: typeof SessionsSessionRoute
+  SpeakersSpeakerRoute: typeof SpeakersSpeakerRoute
+  SessionsIndexRoute: typeof SessionsIndexRoute
   SpeakersIndexRoute: typeof SpeakersIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SessionsSessionRoute: SessionsSessionRoute,
+  SpeakersSpeakerRoute: SpeakersSpeakerRoute,
+  SessionsIndexRoute: SessionsIndexRoute,
   SpeakersIndexRoute: SpeakersIndexRoute,
 }
 
@@ -97,11 +167,23 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/sessions/$session",
+        "/speakers/$speaker",
+        "/sessions/",
         "/speakers/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/sessions/$session": {
+      "filePath": "sessions/$session.tsx"
+    },
+    "/speakers/$speaker": {
+      "filePath": "speakers/$speaker.tsx"
+    },
+    "/sessions/": {
+      "filePath": "sessions/index.tsx"
     },
     "/speakers/": {
       "filePath": "speakers/index.tsx"

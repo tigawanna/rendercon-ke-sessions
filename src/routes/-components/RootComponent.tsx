@@ -1,9 +1,12 @@
 import { MainNavbar } from "@/components/navigation/MainNavbar";
-import { Outlet } from "@tanstack/react-router";
+import { Link, Outlet } from "@tanstack/react-router";
 import { Toaster } from "react-hot-toast";
 import TanstackDevTools from "./TanstackDevTools";
+import { routes } from "@/components/navigation/routes";
+import { closeDaiyUIDrawer } from "@/lib/daisyui";
 
 export function RootComponent() {
+
   return (
     <div className="drawer h-screen w-full">
       <input id="main-side-drawer" type="checkbox" className="drawer-toggle" />
@@ -18,16 +21,25 @@ export function RootComponent() {
         <label
           htmlFor="main-side-drawer"
           aria-label="close sidebar"
-          className="drawer-overlay "
+          className="drawer-overlay"
         ></label>
-        <ul className="menu min-h-full w-80 bg-base-200 p-4 text-base-content">
+        <ul className="h-full w-80 bg-base-200 p-4">
           {/* side drawer content goes here */}
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
+          <div className="flex h-full w-full flex-col gap-2 pt-16">
+            {routes.map((route) => {
+              return (
+                <Link
+                  to={route.href}
+                  onClick={() => closeDaiyUIDrawer("main-side-drawer")}
+                  key={route.name}
+                  className="flex w-full items-center justify-between rounded-md bg-base-100 p-2 text-xl font-thin hover:text-primary"
+                >
+                  {route.name}
+                  <route.icon />
+                </Link>
+              );
+            })}
+          </div>
         </ul>
       </div>
     </div>
