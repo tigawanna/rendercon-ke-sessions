@@ -11,7 +11,7 @@ const query = useSuspenseQuery(sessionizeSpeakersQueryOptions({name:speakerKeywo
 const data = query.data;
 return (
  <div className='w-full h-full flex flex-col items-center pt-5 px-3 '>
- <ul className='w-full grid grid-cols-1 justify-center gap-4 md:grid-cols-2 lg:grid-cols-4'>
+ <ul className='w-full grid grid-cols-1 justify-center gap-4 md:grid-cols-2 xl:grid-cols-3'>
     {data?.map((speaker) => (
         <SpeakersCard key={speaker.id} speaker={speaker}/>
     ))}

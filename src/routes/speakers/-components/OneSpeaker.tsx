@@ -1,6 +1,6 @@
 import { sessionizeOneSpeakersQueryOptions } from "@/api/query-options";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Link, useParams } from "@tanstack/react-router";
+import { Link, useParams,Navigate } from "@tanstack/react-router";
 
 interface OneSpeakerProps {
 
@@ -12,8 +12,10 @@ export function OneSpeaker({}:OneSpeakerProps){
     })
     const query = useSuspenseQuery(sessionizeOneSpeakersQueryOptions({speaker_id:speaker}));
 const oneSpeaker = query.data;
-if(!oneSpeaker) return null;
-console.log(oneSpeaker)
+if(!oneSpeaker){
+    return <Navigate to="/speakers" />
+}
+
 return (
   <div className="flex h-full w-full flex-col items-center justify-center">
     <div className="flex  w-full flex-col items-center gap-3 bg-base-200 p-5 md:flex-row">
