@@ -17,7 +17,7 @@ interface SessionizeSessionsMain {
   isDefault: boolean;
 }
 
-interface SessionizeSession {
+export interface SessionizeSession {
   questionAnswers: any[];
   id: string;
   title: string;
