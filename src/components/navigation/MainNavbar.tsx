@@ -4,7 +4,6 @@ import { NavbarRoutes } from "./NavbarRoutes";
 import { ThemeToggle } from "./ThemeToggle";
 import { Menu } from "lucide-react";
 
-
 interface MainNavbarProps {}
 
 export function MainNavbar({}: MainNavbarProps) {
@@ -12,18 +11,17 @@ export function MainNavbar({}: MainNavbarProps) {
 
   return (
     <nav className="sticky top-0 z-30 flex h-14 w-full flex-col items-center justify-between bg-base-200">
-   
-        <div className="flex h-full w-full items-center justify-between gap-2  px-4 pr-3">
+      <div className="flex h-full w-full items-center justify-between gap-2 px-4 pr-3">
         <label
           htmlFor="main-side-drawer"
-          className=" drawer-button lg:hidden btn btn-sm btn-ghost"
+          className="btn btn-ghost drawer-button btn-sm lg:hidden"
         >
           <Menu className="h-6 w-6" />
         </label>
-          <NavbarRoutes />
-          <ThemeToggle />
-        </div>
-   
+        <NavbarRoutes />
+        <ThemeToggle />
+      </div>
+
       <Nprogress isAnimating={isLoading} />
     </nav>
   );

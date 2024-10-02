@@ -23,7 +23,7 @@ export function RootComponent() {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="h-full w-80 bg-base-200 p-4">
+        <ul className="h-full w-80 bg-base-200 p-4 text-base-content">
           {/* side drawer content goes here */}
           <div className="flex h-full w-full flex-col gap-2 pt-16">
             {routes.map((route) => {
@@ -32,9 +32,10 @@ export function RootComponent() {
                   to={route.href}
                   onClick={() => closeDaiyUIDrawer("main-side-drawer")}
                   key={route.name}
-                  className="flex w-full items-center justify-between rounded-md bg-base-100 p-2 text-xl font-thin hover:text-primary"
+                  className="flex w-full items-center justify-between rounded-md bg-base-100 p-2 text-xl  text-base-content hover:text-primary"
                 >
-                  {route.name}
+                  <span className="flex items-center gap-2 brightness-110 z-20">{route.name}</span>
+
                   <route.icon />
                 </Link>
               );
