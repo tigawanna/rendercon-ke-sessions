@@ -3,14 +3,14 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { SpeakersCard } from "./SpeakersCard";
 
 interface SpeakersListProps {
-
+speakerKeyword:string
 }
 
-export function SpeakersList({}:SpeakersListProps){
-const query = useSuspenseQuery(sessionizeSpeakersQueryOptions({name: ""}));    
+export function SpeakersList({speakerKeyword}:SpeakersListProps){
+const query = useSuspenseQuery(sessionizeSpeakersQueryOptions({name:speakerKeyword}));    
 const data = query.data;
 return (
- <div className='w-full h-full flex flex-col items-center justify-center'>
+ <div className='w-full h-full flex flex-col items-center pt-5 px-3 '>
  <ul className='w-full grid grid-cols-1 justify-center gap-4 md:grid-cols-2 lg:grid-cols-4'>
     {data?.map((speaker) => (
         <SpeakersCard key={speaker.id} speaker={speaker}/>
