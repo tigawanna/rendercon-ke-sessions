@@ -1,12 +1,12 @@
-import { sessionizeOneSessionsQueryOptions, sessionizeOneSpeakersQueryOptions } from "@/api/query-options";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/shadcn/ui/avatar";
+import { sessionizeOneSessionsQueryOptions } from "@/api/query-options";
 import { Badge } from "@/components/shadcn/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/shadcn/ui/card";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Link, useParams,Navigate } from "@tanstack/react-router";
+import { useParams,Navigate } from "@tanstack/react-router";
 import { CalendarIcon, ClockIcon, LinkIcon, MapPinIcon } from "lucide-react";
 import { format } from "date-fns";
-import { SpakersFromIdArray } from "@/routes/speakers/-components/SpakersFromIdArray";
+import { SpeakersFromIdArray } from "@/routes/speakers/-components/SpeakersFromIdArray";
+
 
 interface OneSpeakerProps {
 
@@ -74,7 +74,7 @@ return (
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-4">
-            <SpakersFromIdArray
+            <SpeakersFromIdArray
               speakers={oneSession.speakers.flatMap((s) => s.id)}
             />
 

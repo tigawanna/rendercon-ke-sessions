@@ -2,11 +2,11 @@ import { CardsListSuspenseFallback } from "@/components/loaders/GenericDataCards
 import { Suspense } from "react";
 import { SpeakerById } from "./SpeakersByIds";
 
-interface SpakersFromIdArrayProps {
+interface SpeakersFromIdArrayProps {
   speakers: string[];
 }
 
-export function SpakersFromIdArray({ speakers }: SpakersFromIdArrayProps) {
+export function SpeakersFromIdArray({ speakers }: SpeakersFromIdArrayProps) {
   return (
     <div className="xl:grid-cols- grid h-full w-full grid-cols-1 gap-4 md:grid-cols-2">
       {speakers.map((speaker) => (
