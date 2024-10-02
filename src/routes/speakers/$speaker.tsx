@@ -1,4 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Suspense } from 'react';
+import { OneSpeaker } from './-components/OneSpeaker';
 
 export const Route = createFileRoute('/speakers/$speaker')({
   component: OneSpeakerPage,
@@ -8,7 +10,9 @@ export const Route = createFileRoute('/speakers/$speaker')({
 export function OneSpeakerPage(){
 return (
  <div className='w-full h-full min-h-screen flex flex-col items-center justify-center'>
-  <h1 className="text-7xl font-bold text-primary">One Speaker</h1>
+  <Suspense>
+    <OneSpeaker/>
+  </Suspense>
  </div>
 );
 }
