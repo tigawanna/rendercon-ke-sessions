@@ -10,12 +10,12 @@ return (
   <Link
     to="/speakers/$speaker"
     params={{speaker:speaker.id}}
-    className="flex h-56 w-[95%] items-center gap-3 rounded-xl bg-gradient-to-r from-base-300 to-base-200 p-3 hover:scale-95 hover:via-secondary/30 hover:text-primary hover:duration-300 hover:ease-in-out"
+    className="flex flex-col md:flex-row h-fit md:h-56 pb-3 w-[95%] items-center gap-3 rounded-xl bg-gradient-to-r from-base-300 to-base-200 p-3 hover:scale-95 hover:via-secondary/30 hover:text-primary hover:duration-300 hover:ease-in-out"
   >
     <img
       src={speaker.profilePicture}
       alt={speaker.fullName}
-      className="aspect-square h-full"
+      className="aspect-square object-cover w-full h-[50%] md:max-h-full md:h-full md:w-auto"
     />
     <div className="">
       <h2 className="text-2xl line-clamp-2">{speaker.fullName}</h2>

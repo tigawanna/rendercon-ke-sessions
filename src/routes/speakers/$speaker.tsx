@@ -5,6 +5,11 @@ import { CardsListSuspenseFallback } from '@/components/loaders/GenericDataCards
 
 export const Route = createFileRoute('/speakers/$speaker')({
   component: OneSpeakerPage,
+  // meta(ctx) {
+  //   return {
+  //     title: `Speaker: ${ctx.params.speaker}`,
+  //   };
+  // },
 })
 
 

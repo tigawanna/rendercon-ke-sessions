@@ -8,7 +8,7 @@ import { twMerge } from "tailwind-merge";
 interface SessionsStartingAtProps {}
 
 function sessionPeriodStatus(startsAt: Date, endsAt: Date) {
-console.log(startsAt,endsAt)
+
   const now = Number(format(new Date(),'T'))
   const starts = Number(format(startsAt,'T'))
   const ends = Number(format(endsAt,'T'))
