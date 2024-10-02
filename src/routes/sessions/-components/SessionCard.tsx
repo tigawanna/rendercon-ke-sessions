@@ -18,7 +18,8 @@ interface SessionCardProps {
 export function SessionCard({session}:SessionCardProps){
 return (
   <Link
-    to={session.id}
+    to={"/sessions/$session"}
+    params={{session: session.id}}
     className="flex w-[95%] items-center gap-3 rounded-xl bg-gradient-to-r from-base-300 to-base-200 hover:scale-95 hover:via-secondary/30 hover:text-primary hover:duration-300 hover:ease-in-out"
   >
     <Card className="border-none bg-gradient-to-r from-base-300 to-base-200 hover:via-secondary/30">

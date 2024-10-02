@@ -1,4 +1,7 @@
+import { Suspense } from "react";
 import { RealTimeClock } from "./RealTimeClock";
+import { CardsListSuspenseFallback } from "@/components/loaders/GenericDataCardsListSuspenseFallback";
+import { SessionsStartingAt } from "./SessionsStartingAt";
 
 export function HomePage() {
 
@@ -27,15 +30,14 @@ export function HomePage() {
         />
       </picture>
 
-      <div className=" flex h-full min-h-screen w-full flex-col items-center justify-evenly gap-5 bg-base-300/70">
-        <div className="*:justfy-center grid grid-cols-1 justify-center gap-2 p-[5%] *:flex *:items-center *:rounded-xl *:bg-base-300/40 *:p-5 md:grid-cols-2 lg:grid-cols-2">
-          <h1 className="text-7xl font-bold text-primary">
-            welcome 
-          </h1>
-
+      <div className="flex h-full min-h-screen w-full flex-col items-center justify-evenly gap-2 bg-base-300/70">
           <RealTimeClock />
-
-        </div>
+        {/* <div className="*:justfy-center grid grid-cols-1 justify-center gap-2 p-[5%] *:flex *:items-center *:rounded-xl *:bg-base-300/40 *:p-3 md:grid-cols-2 lg:grid-cols-2">
+          <h1 className="text-7xl font-bold text-primary">welcome</h1>
+        </div> */}
+        <Suspense fallback={<CardsListSuspenseFallback />}>
+          <SessionsStartingAt />
+        </Suspense>
       </div>
     </div>
   );
