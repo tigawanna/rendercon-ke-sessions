@@ -11,8 +11,8 @@ export function Sessions({}: SessionsProps) {
     useSessionsSearch();
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
-      <div className="sticky top-[8%] z-10 flex w-full flex-col justify-evenly gap-1 bg-base-200 px-3 pr-5 md:flex-row">
-        <div className="flex w-full gap-2 p-1">
+      <div className="sticky top-[9%] z-10 flex w-full  justify-evenly gap-1 bg-base-200 px-3 pr-5 md:flex-row">
+        <div className="flex w-full gap-2 p-1 pt-2">
           <h1 className="bg-base-200/30 text-2xl font-bold">Sessions</h1>
         </div>
 

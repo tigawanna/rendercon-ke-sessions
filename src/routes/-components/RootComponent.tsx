@@ -6,7 +6,6 @@ import { routes } from "@/components/navigation/routes";
 import { closeDaiyUIDrawer } from "@/lib/daisyui";
 
 export function RootComponent() {
-
   return (
     <div className="drawer h-screen w-full">
       <input id="main-side-drawer" type="checkbox" className="drawer-toggle" />
@@ -23,10 +22,10 @@ export function RootComponent() {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="h-screen fixed top-0 bottom-0 w-80 bg-base-200/70 p-4 text-base-content">
+        <ul className="fixed bottom-0 top-0 h-screen w-80 bg-base-200/70 p-4 text-base-content">
           {/* side drawer content goes here */}
           <div>
-            <img src="/label-icon.png" alt="logo" className="w-full"/>
+            <img src="/label-icon.png" alt="logo" className="w-full" />
           </div>
           <div className="flex h-full w-full flex-col gap-2 pt-16">
             {routes.map((route) => {
@@ -35,9 +34,11 @@ export function RootComponent() {
                   to={route.href}
                   onClick={() => closeDaiyUIDrawer("main-side-drawer")}
                   key={route.name}
-                  className="flex w-full items-center justify-between rounded-md bg-base-100 p-2 text-xl  text-base-content hover:text-primary"
+                  className="flex w-full items-center justify-between rounded-md bg-base-100 p-2 text-xl text-base-content hover:text-primary"
                 >
-                  <span className="flex items-center gap-2 brightness-110 z-20">{route.name}</span>
+                  <span className="z-20 flex items-center gap-2 brightness-110">
+                    {route.name}
+                  </span>
 
                   <route.icon />
                 </Link>
