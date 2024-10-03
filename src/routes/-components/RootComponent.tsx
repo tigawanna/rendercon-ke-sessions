@@ -17,14 +17,17 @@ export function RootComponent() {
         <TanstackDevTools />
         <Toaster reverseOrder />
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side z-30">
         <label
           htmlFor="main-side-drawer"
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="h-full w-80 bg-base-200 p-4 text-base-content">
+        <ul className="h-screen fixed top-0 bottom-0 w-80 bg-base-200/70 p-4 text-base-content">
           {/* side drawer content goes here */}
+          <div>
+            <img src="/label-icon.png" alt="logo" className="w-full"/>
+          </div>
           <div className="flex h-full w-full flex-col gap-2 pt-16">
             {routes.map((route) => {
               return (

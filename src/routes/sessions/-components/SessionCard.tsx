@@ -20,11 +20,11 @@ return (
   <Link
     to={"/sessions/$session"}
     params={{session: session.id}}
-    className="flex w-[95%] items-center gap-3 rounded-xl bg-gradient-to-r from-base-300 to-base-200 hover:scale-95 hover:via-secondary/30 hover:text-primary hover:duration-300 hover:ease-in-out"
+    className="flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-base-300 to-base-200 hover:scale-95 hover:via-secondary/30 hover:text-primary hover:duration-300 hover:ease-in-out"
   >
-    <Card className="border-none bg-gradient-to-r from-base-300 to-base-200 hover:via-secondary/30">
+    <Card className="rounded-xl border-none bg-gradient-to-r from-base-300 to-base-200 hover:via-secondary/30">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold">{session.title}</CardTitle>
+        <CardTitle className="text-xl font-bold">{session.title}</CardTitle>
         <div className="mt-2 flex flex-wrap gap-2">
           {session.categories.map((category) => (
             <Badge key={category.id} variant="secondary">

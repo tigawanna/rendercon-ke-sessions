@@ -66,7 +66,7 @@ export function SessionsStartingAt({}: SessionsStartingAtProps) {
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
-      <ul className="grid w-full grid-cols-1 justify-center gap-4 ">
+      <ul className="grid w-full grid-cols-1 justify-center items-center gap-4 ">
         {Object.entries(data).map(([key, value], idx) => {
             const {status,className} = sessionPeriodStatus(value.startsAt,value.endsAt)
           return (
@@ -77,16 +77,16 @@ export function SessionsStartingAt({}: SessionsStartingAtProps) {
                   className,
                 )}
               >
-                <div className="flex flex-wrap items-center justify-center gap-2 text-4xl">
+                <div className="flex flex-wrap items-center justify-center gap-2 text-xl">
                   <CalendarIcon className="size-10" />
                   <span>{format(key, "PPPPpp")}</span>
                   {status === "current" && (
-                    <span className="flex gap-2 text-2xl">
+                    <span className="flex gap-2 text-xl">
                      Happening now <Atom className="size-6 animate-spin" />
                     </span>
                   )}
                   {status === "past" && (
-                    <span className="flex gap-2 text-2xl">
+                    <span className="flex gap-2 text-xl">
                       Past <Atom className="size-6 animate-spin text-primary" />
                     </span>
                   )}
