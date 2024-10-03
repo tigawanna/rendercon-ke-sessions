@@ -32,7 +32,7 @@ export function HomePage() {
 
       <div className="flex h-full min-h-screen w-full flex-col items-center justify-evenly gap-2 bg-base-300/90">
         <div className="w-full h-[30%] flex flex-col sm:flex-row justify-center items-center gap-2 ">
-        <img className=" w-full md:w-fit md:h-[70%]  " src="/public/label-icon.png" />
+        <img className=" w-full md:w-fit md:h-[70%]  " src="/label-icon.png" />
         <RealTimeClock />
 </div>
         {/* <div className="*:justfy-center grid grid-cols-1 justify-center gap-2 p-[5%] *:flex *:items-center *:rounded-xl *:bg-base-300/40 *:p-3 md:grid-cols-2 lg:grid-cols-2">
