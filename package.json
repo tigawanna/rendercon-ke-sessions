@@ -1,12 +1,11 @@
 {
-  "name": "my-property-manager",
+  "name": "rendercon-ke-sessions-spa",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "dev": "vite",
-    "pb-types": "tsx src/lib/pb/scripts/gen-pb-types.ts property",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",

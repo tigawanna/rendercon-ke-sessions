@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { RealTimeClock } from "./RealTimeClock";
 import { CardsListSuspenseFallback } from "@/components/loaders/GenericDataCardsListSuspenseFallback";
 import { SessionsStartingAt } from "./SessionsStartingAt";
+import { RouterPendingComponent } from "@/lib/tanstack/router/RouterPendingComponent";
 
 export function HomePage() {
 
@@ -29,12 +30,12 @@ export function HomePage() {
           className="size-full object-fill"
         />
       </picture>
-
+{/* <RouterPendingComponent/> */}
       <div className="flex h-full min-h-screen w-full flex-col items-center justify-evenly gap-2 bg-base-300/90">
         <div className="w-full h-[30%] flex flex-col sm:flex-row justify-center items-center gap-2 ">
         <img className=" w-full md:w-fit md:h-[70%]  " src="/label-icon.png" />
         <RealTimeClock />
-</div>
+      </div>
         {/* <div className="*:justfy-center grid grid-cols-1 justify-center gap-2 p-[5%] *:flex *:items-center *:rounded-xl *:bg-base-300/40 *:p-3 md:grid-cols-2 lg:grid-cols-2">
           <h1 className="text-7xl font-bold text-primary">welcome</h1>
         </div> */}

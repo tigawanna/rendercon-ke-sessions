@@ -6,7 +6,6 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import { routeTree } from "./routeTree.gen";
-import { pb } from "./lib/pb/client";
 import React, { useEffect } from "react";
 import { RouterPendingComponent } from "./lib/tanstack/router/RouterPendingComponent";
 import { RouterErrorComponent } from "./lib/tanstack/router/routerErrorComponent";
@@ -43,7 +42,6 @@ const router = createRouter({
   defaultNotFoundComponent: () => <RouterNotFoundComponent />,
   defaultErrorComponent: ({ error }) => <RouterErrorComponent error={error} />,
   context: {
-    pb: undefined!, // We'll inject this when we render
     queryClient
   },
 });
@@ -67,7 +65,6 @@ function App() {
         router={router}
         defaultPreload="intent"
         context={{
-          pb,
           queryClient
         }}
       />
